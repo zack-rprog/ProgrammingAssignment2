@@ -6,7 +6,7 @@
 ##inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-    i <- NULL
+    i <- NULL #cached inverse starts empty
     set <- function(y) {
         #Change the stored value and invalidate the current cache
         x <<- y
@@ -32,7 +32,7 @@ cacheSolve <- function(x, ...) {
     }
     mat <- x$get()
     inverse <- solve(mat) #actually calculate inverse
-    x$setinverse(inverse)
+    x$setinverse(inverse) #store the result in the cache
     ## Return a matrix that is the inverse of 'x'
     inverse
 }
